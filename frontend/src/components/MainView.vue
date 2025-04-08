@@ -23,7 +23,14 @@
       <div style="text-align: right; margin-bottom: 24px">
         <button
           @click="openCreateForm = true"
-          :style="{ background: obtenerGradient('Gray'), padding: '8px 16px', color: 'black', border: 'none', borderRadius: '4px', cursor: 'pointer' }"
+          :style="{
+            background: obtenerGradient('Gray'),
+            padding: '8px 16px',
+            color: 'black',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+          }"
         >
           + Create Task
         </button>
@@ -32,10 +39,24 @@
       <!-- Edit Form -->
       <div
         v-if="openEditForm"
-        style="background-color: white; padding: 16px; margin-bottom: 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
+        style="
+          background-color: white;
+          padding: 16px;
+          margin-bottom: 24px;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        "
       >
-        <input v-model="form.title" placeholder="Title" style="margin: 4px; padding: 4px" />
-        <input v-model="form.description" placeholder="Description" style="margin: 4px; padding: 4px" />
+        <input
+          v-model="form.title"
+          placeholder="Title"
+          style="margin: 4px; padding: 4px"
+        />
+        <input
+          v-model="form.description"
+          placeholder="Description"
+          style="margin: 4px; padding: 4px"
+        />
         <select v-model="form.priority_level" style="margin: 4px; padding: 4px">
           <option disabled value="">Priority</option>
           <option>Low</option>
@@ -51,17 +72,36 @@
           <option>Completed</option>
           <option>Canceled</option>
         </select>
-        <input v-model="form.estimate" type="number" min="0" placeholder="Estimate" style="margin: 4px; padding: 4px" />
+        <input
+          v-model="form.estimate"
+          type="number"
+          min="0"
+          placeholder="Estimate"
+          style="margin: 4px; padding: 4px"
+        />
         <button
           @click="submitEdit"
-          :style="{ background: obtenerGradient('Blue'), margin: '4px', padding: '4px 8px', color: 'black', border: 'none', borderRadius: '4px' }"
+          :style="{
+            background: obtenerGradient('Blue'),
+            margin: '4px',
+            padding: '4px 8px',
+            color: 'black',
+            border: 'none',
+            borderRadius: '4px',
+          }"
         >
           Update
         </button>
         <button
           @click="openEditForm = false"
-          :style="{ background: obtenerGradient('Red'), margin: '4px', padding: '4px 8px', color: 'black', border: 'none', borderRadius: '4px' }"
-          
+          :style="{
+            background: obtenerGradient('Red'),
+            margin: '4px',
+            padding: '4px 8px',
+            color: 'black',
+            border: 'none',
+            borderRadius: '4px',
+          }"
         >
           Cancel
         </button>
@@ -70,10 +110,24 @@
       <!-- Create Form -->
       <div
         v-if="openCreateForm"
-        style="background-color: white; padding: 16px; margin-bottom: 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
+        style="
+          background-color: white;
+          padding: 16px;
+          margin-bottom: 24px;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        "
       >
-        <input v-model="form.title" placeholder="Title" style="margin: 4px; padding: 4px" />
-        <input v-model="form.description" placeholder="Description" style="margin: 4px; padding: 4px" />
+        <input
+          v-model="form.title"
+          placeholder="Title"
+          style="margin: 4px; padding: 4px"
+        />
+        <input
+          v-model="form.description"
+          placeholder="Description"
+          style="margin: 4px; padding: 4px"
+        />
         <select v-model="form.priority_level" style="margin: 4px; padding: 4px">
           <option disabled value="">Priority</option>
           <option>Low</option>
@@ -89,23 +143,50 @@
           <option>Completed</option>
           <option>Canceled</option>
         </select>
-        <input v-model="form.estimate" type="number" min="0" placeholder="Estimate" style="margin: 4px; padding: 4px" />
+        <input
+          v-model="form.estimate"
+          type="number"
+          min="0"
+          placeholder="Estimate"
+          style="margin: 4px; padding: 4px"
+        />
         <button
           @click="createTask"
-          :style="{ background: obtenerGradient('Gray'), margin: '4px', padding: '4px 8px', color: 'black', border: 'none', borderRadius: '4px' }"
+          :style="{
+            background: obtenerGradient('Gray'),
+            margin: '4px',
+            padding: '4px 8px',
+            color: 'black',
+            border: 'none',
+            borderRadius: '4px',
+          }"
         >
           Save
         </button>
         <button
           @click="openCreateForm = false"
-          style="margin: 4px; padding: 4px 8px; background-color: #e74c3c; color: white; border: none; border-radius: 4px;"
+          style="
+            margin: 4px;
+            padding: 4px 8px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+          "
         >
           Cancel
         </button>
       </div>
 
       <!-- Task Table -->
-      <div style="background-color: white; padding: 16px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+      <div
+        style="
+          background-color: white;
+          padding: 16px;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        "
+      >
         <table style="width: 100%; border-collapse: collapse">
           <thead>
             <tr style="background-color: #ecf0f1">
@@ -113,7 +194,7 @@
               <th style="padding: 8px; text-align: left">Title</th>
               <th style="padding: 8px; text-align: left">Priority</th>
               <th style="padding: 8px; text-align: left">Status</th>
-              <th style="padding: 8px; text-align: left">Estimate</th>
+              <th style="padding: 8px; text-align: left">Estimate (Hours)</th>
               <th style="padding: 8px; text-align: left">Created</th>
               <th style="padding: 8px; text-align: center">Description</th>
               <th style="padding: 8px; text-align: center">Delete</th>
@@ -121,17 +202,30 @@
             </tr>
           </thead>
           <tbody>
-            <tr style="border-top: 1px solid #ddd" v-for="task in tasksC" :key="task.id">
+            <tr
+              style="border-top: 1px solid #ddd"
+              v-for="task in tasksC"
+              :key="task.id"
+            >
               <td style="padding: 8px">{{ task.id }}</td>
               <td style="padding: 8px">{{ task.title }}</td>
               <td style="padding: 8px">{{ task.priority_level }}</td>
               <td style="padding: 8px">{{ task.status }}</td>
               <td style="padding: 8px">{{ task.estimate }}</td>
-              <td style="padding: 8px">{{ new Date(task.fecha_creacion).toLocaleDateString() }}</td>
+              <td style="padding: 8px">
+                {{ new Date(task.fecha_creacion).toLocaleDateString() }}
+              </td>
               <td style="padding: 8px; text-align: center">
                 <button
                   @click="turnOnDescription(task)"
-                  :style="{ background: obtenerGradient('Green'), padding: '4px 8px', color: 'black', border: 'none', borderRadius: '4px', cursor: 'pointer' }"
+                  :style="{
+                    background: obtenerGradient('Green'),
+                    padding: '4px 8px',
+                    color: 'black',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                  }"
                 >
                   Details
                 </button>
@@ -139,7 +233,14 @@
               <td style="padding: 8px; text-align: center">
                 <button
                   @click="deleteTask(task.id)"
-                  :style="{ background: obtenerGradient('Red'), padding: '4px 8px', color: 'black', border: 'none', borderRadius: '4px', cursor: 'pointer' }"
+                  :style="{
+                    background: obtenerGradient('Red'),
+                    padding: '4px 8px',
+                    color: 'black',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                  }"
                 >
                   Delete
                 </button>
@@ -147,7 +248,14 @@
               <td style="padding: 8px; text-align: center">
                 <button
                   @click="updateTask(task.id)"
-                  :style="{ background: obtenerGradient('Blue'), padding: '4px 8px', color: 'black', border: 'none', borderRadius: '4px', cursor: 'pointer' }"
+                  :style="{
+                    background: obtenerGradient('Blue'),
+                    padding: '4px 8px',
+                    color: 'black',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                  }"
                 >
                   Edit
                 </button>
@@ -160,18 +268,59 @@
         <div
           v-if="openDescription"
           @click="openDescription = false"
-          style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; z-index: 9999;"
+          style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+          "
         >
           <div
-            style="background: white; padding: 24px 32px; border-radius: 12px; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25); max-width: 600px; width: 90%; display: flex; flex-direction: column; gap: 16px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; line-height: 1.5;"
+            style="
+              background: white;
+              padding: 24px 32px;
+              border-radius: 12px;
+              box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+              max-width: 600px;
+              width: 90%;
+              display: flex;
+              flex-direction: column;
+              gap: 16px;
+              font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman',
+                serif;
+              line-height: 1.5;
+            "
           >
             <h2
-              style="font-size: 28px; margin: 0; text-align: center; border-bottom: 1px solid #ccc; padding-bottom: 12px; background-color: #2c3e50; color: white; padding: 16px; font-size: 24px;"
+              style="
+                font-size: 28px;
+                margin: 0;
+                text-align: center;
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 12px;
+                background-color: #2c3e50;
+                color: white;
+                padding: 16px;
+                font-size: 24px;
+              "
             >
               Task Description
               <div style="color: white; font-size: 11px">Toca para cerrar</div>
             </h2>
-            <p style="font-size: 18px; color: #333; text-align: justify; white-space: pre-wrap;">
+            <p
+              style="
+                font-size: 18px;
+                color: #333;
+                text-align: justify;
+                white-space: pre-wrap;
+              "
+            >
               {{ task.description || "No description available." }}
             </p>
           </div>
@@ -180,7 +329,6 @@
     </div>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -197,7 +345,6 @@ export default {
         priority_level: "",
         status: "",
         estimate: null,
-        
       },
       gradientes: {
         Green: "linear-gradient(0deg, #c6fdb4 40%, #ecfee4 40%)",
@@ -215,8 +362,7 @@ export default {
     this.getTasks();
   },
   methods: {
-  
-  obtenerGradient(color) {
+    obtenerGradient(color) {
       return (
         this.gradientes[color] ||
         "linear-gradient(0deg, #ffffff 40%, #f0f0f0 40%)"
@@ -323,5 +469,4 @@ button[style*="#e74c3c"]:hover {
 button[style*="#2ecc71"]:hover {
   background-color: #27ae60;
 }
-
 </style>
